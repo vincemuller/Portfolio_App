@@ -62,6 +62,15 @@ struct LogInScreen: View {
                             .foregroundStyle(.black)
                     }).offset(y: 60)
                 }
+                HStack (alignment: .bottom, spacing: 20) {
+                    Image("appleLogo")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .offset(y: 2)
+                    Image("googleLogo")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                }.offset(y: 300)
             }
         }
     }
