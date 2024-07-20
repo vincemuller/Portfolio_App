@@ -30,7 +30,7 @@ struct Portfolio_LogInPageApp: App {
                 ConfirmationScreen(username: username)
                     .environmentObject(sessionManager)
             case .session(let user):
-                SessionScreen(user: user)
+                DashboardScreen(user: user)
                     .environmentObject(sessionManager)
             }
         }

@@ -6,6 +6,7 @@
 //
 
 import Amplify
+import SwiftUI
 
 enum AuthState {
     case signUp
@@ -31,6 +32,10 @@ final class SessionManager: ObservableObject {
     
     func showLogin() {
         authState = .login
+    }
+    
+    func showDashboard(user: AuthUser) {
+        authState = .session(user: user)
     }
     
     func signUp(username: String, email: String, password: String) {
@@ -59,6 +64,42 @@ final class SessionManager: ObservableObject {
                 
             case .failure(let error):
                 print("Sign Up Error")
+            }
+        }
+    }
+    
+    func confirm(username: String, code: String) {
+        _ = Amplify.Auth.confirmSignUp(for: username, confirmationCode: code) {
+            [weak self] result in
+            
+            switch result {
+            case .success(let confirmResult):
+                print(confirmResult)
+                if confirmResult.isSignupComplete {
+                    DispatchQueue.main.async {
+                        self?.showLogin()
+                    }
+                }
+            case .failure(let error):
+                print("failed to confirm code: ", error)
+            }
+        }
+    }
+    
+    func signIn(username: String, password: String) {
+        _ = Amplify.Auth.signIn(username: username, password: password) {
+            [weak self] result in
+            
+            switch result {
+            case .success(let confirmSignIn):
+                print("Logged In Successfully!")
+                if confirmSignIn.isSignedIn {
+                    DispatchQueue.main.async {
+                        self?.getCurrentUser()
+                    }
+                }
+            case .failure(let error):
+                print("Failed to log in", error)
             }
         }
     }

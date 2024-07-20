@@ -15,6 +15,7 @@ struct SignUpScreen: View {
     @State var username = ""
     @State var email = ""
     @State var password = ""
+    @State var confPassword = ""
     
     var body: some View {
         ZStack {
@@ -23,7 +24,7 @@ struct SignUpScreen: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(.white)
-                    .frame(width: 360, height: 350)
+                    .frame(width: 360, height: 410)
                     .offset(y: 20)
                 VStack {
                     Text("Welcome!")
@@ -52,7 +53,7 @@ struct SignUpScreen: View {
                     Rectangle()
                         .frame(width: 300, height: 1)
                     HStack (alignment: .bottom) {
-                        Image(systemName: "lock.fill")
+                        Image(systemName: "lock")
                             .font(.system(size: 20))
                         TextField("Password", text: $password)
                             .font(.system(size: 20))
@@ -62,7 +63,20 @@ struct SignUpScreen: View {
                     .padding(.top, 25)
                     Rectangle()
                         .frame(width: 300, height: 1)
-                    Button(action: {print("executed!")}, label: {
+                    HStack (alignment: .bottom) {
+                        Image(systemName: "lock.fill")
+                            .font(.system(size: 20))
+                        TextField("Confirm Password", text: $confPassword)
+                            .font(.system(size: 20))
+                            .offset(y: 3)
+                    }
+                    .frame(width: 300)
+                    .padding(.top, 25)
+                    Rectangle()
+                        .frame(width: 300, height: 1)
+                    Button(action: {
+                        sessionManager.signUp(username: username, email: email, password: password)
+                    }, label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 15)
                                 .fill(.black)
@@ -72,7 +86,9 @@ struct SignUpScreen: View {
                                 .font(.title2)
                         }
                     }).offset(y: 50)
-                    Button(action: {print("Password Reset!")}, label: {
+                    Button(action: {
+                        sessionManager.showLogin()
+                    }, label: {
                         Text("Already have an account?")
                             .font(.system(size: 14))
                             .foregroundStyle(.black)
