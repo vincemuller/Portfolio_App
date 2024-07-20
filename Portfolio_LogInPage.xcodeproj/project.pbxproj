@@ -10,6 +10,10 @@
 		20A975E710162A9ACC79E5EF /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = CBC1F23054012FDA91F790C3 /* amplifyconfiguration.json */; };
 		427439BD555B8864831A4B67 /* Pods_Portfolio_LogInPage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C4CA924B80D5FAC136843B4 /* Pods_Portfolio_LogInPage.framework */; };
 		C5C8DEB334093BB262FF7236 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = FAAC957DDF58B423E7B6AB83 /* awsconfiguration.json */; };
+		EB44380B2C4A1C03003B9B66 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44380A2C4A1C03003B9B66 /* SessionManager.swift */; };
+		EB44380D2C4A1E1A003B9B66 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44380C2C4A1E1A003B9B66 /* SignUpScreen.swift */; };
+		EB44380F2C4A20E6003B9B66 /* ConfirmationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44380E2C4A20E6003B9B66 /* ConfirmationScreen.swift */; };
+		EB4438112C4A2155003B9B66 /* SessionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4438102C4A2155003B9B66 /* SessionScreen.swift */; };
 		EBB9893D2C42358100056A0E /* Portfolio_LogInPageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB9893C2C42358100056A0E /* Portfolio_LogInPageApp.swift */; };
 		EBB989412C42358300056A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB989402C42358300056A0E /* Assets.xcassets */; };
 		EBB989442C42358300056A0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB989432C42358300056A0E /* Preview Assets.xcassets */; };
@@ -21,6 +25,10 @@
 		6C4CA924B80D5FAC136843B4 /* Pods_Portfolio_LogInPage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Portfolio_LogInPage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC1F23054012FDA91F790C3 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		DB3D266D6222312B782C20BE /* Pods-Portfolio_LogInPage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Portfolio_LogInPage.release.xcconfig"; path = "Target Support Files/Pods-Portfolio_LogInPage/Pods-Portfolio_LogInPage.release.xcconfig"; sourceTree = "<group>"; };
+		EB44380A2C4A1C03003B9B66 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		EB44380C2C4A1E1A003B9B66 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
+		EB44380E2C4A20E6003B9B66 /* ConfirmationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationScreen.swift; sourceTree = "<group>"; };
+		EB4438102C4A2155003B9B66 /* SessionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionScreen.swift; sourceTree = "<group>"; };
 		EBB989392C42358100056A0E /* Portfolio_LogInPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio_LogInPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB9893C2C42358100056A0E /* Portfolio_LogInPageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio_LogInPageApp.swift; sourceTree = "<group>"; };
 		EBB989402C42358300056A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,10 +88,14 @@
 		EBB9893B2C42358100056A0E /* Portfolio_LogInPage */ = {
 			isa = PBXGroup;
 			children = (
+				EB44380A2C4A1C03003B9B66 /* SessionManager.swift */,
 				EBB9893C2C42358100056A0E /* Portfolio_LogInPageApp.swift */,
 				EBB989402C42358300056A0E /* Assets.xcassets */,
 				EBB989422C42358300056A0E /* Preview Content */,
 				EBB9894A2C4235B200056A0E /* LogInScreen.swift */,
+				EB44380C2C4A1E1A003B9B66 /* SignUpScreen.swift */,
+				EB44380E2C4A20E6003B9B66 /* ConfirmationScreen.swift */,
+				EB4438102C4A2155003B9B66 /* SessionScreen.swift */,
 			);
 			path = Portfolio_LogInPage;
 			sourceTree = "<group>";
@@ -225,8 +237,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB4438112C4A2155003B9B66 /* SessionScreen.swift in Sources */,
 				EBB9894B2C4235B200056A0E /* LogInScreen.swift in Sources */,
 				EBB9893D2C42358100056A0E /* Portfolio_LogInPageApp.swift in Sources */,
+				EB44380F2C4A20E6003B9B66 /* ConfirmationScreen.swift in Sources */,
+				EB44380B2C4A1C03003B9B66 /* SessionManager.swift in Sources */,
+				EB44380D2C4A1E1A003B9B66 /* SignUpScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
