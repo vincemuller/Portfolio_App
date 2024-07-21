@@ -12,6 +12,7 @@ enum AuthState {
     case signUp
     case login
     case confirmCode(username: String)
+    case resetPassword(username: String)
     case session(user: AuthUser)
 }
 
@@ -32,6 +33,10 @@ final class SessionManager: ObservableObject {
     
     func showLogin() {
         authState = .login
+    }
+    
+    func showResetPassword(username: String, code: String) {
+        authState = .resetPassword(username: username)
     }
     
     func showDashboard(user: AuthUser) {
@@ -115,6 +120,36 @@ final class SessionManager: ObservableObject {
                 }
             case .failure(let error):
                 print("Sign Out Error: ", error)
+            }
+        }
+    }
+    
+    func resetPassword(username: String) {
+        _ = Amplify.Auth.resetPassword(for: username) {
+            [weak self] result in switch result {
+            case .success(let result):
+                print("Succeeded: \(result)")
+                DispatchQueue.main.async {
+                    self?.authState = .resetPassword(username: username)
+                }
+            case .failure(let error):
+                print("Failed to reset: \(error)")
+            }
+        }
+    }
+    
+    func changePassword(username: String, newPassword: String, code: String) {
+        _ = Amplify.Auth.confirmResetPassword(for: username, with: newPassword, confirmationCode: code) {
+            [weak self] result in
+            
+            switch result {
+            case .success(let confirmResult):
+                print(confirmResult)
+                DispatchQueue.main.async {
+                    self?.showLogin()
+                }
+            case .failure(let error):
+                print("Failed to confirm password reset", error)
             }
         }
     }

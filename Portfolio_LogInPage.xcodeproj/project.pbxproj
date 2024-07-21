@@ -15,6 +15,7 @@
 		EB44380F2C4A20E6003B9B66 /* ConfirmationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44380E2C4A20E6003B9B66 /* ConfirmationScreen.swift */; };
 		EB4438132C4C4C25003B9B66 /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4438122C4C4C25003B9B66 /* DashboardScreen.swift */; };
 		EB4438192C4CB639003B9B66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4438182C4CB639003B9B66 /* SceneDelegate.swift */; };
+		EB44381F2C4D4428003B9B66 /* ResetPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44381E2C4D4428003B9B66 /* ResetPasswordScreen.swift */; };
 		EBB9893D2C42358100056A0E /* Portfolio_LogInPageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB9893C2C42358100056A0E /* Portfolio_LogInPageApp.swift */; };
 		EBB989412C42358300056A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB989402C42358300056A0E /* Assets.xcassets */; };
 		EBB989442C42358300056A0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB989432C42358300056A0E /* Preview Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		EB44380E2C4A20E6003B9B66 /* ConfirmationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationScreen.swift; sourceTree = "<group>"; };
 		EB4438122C4C4C25003B9B66 /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
 		EB4438182C4CB639003B9B66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EB44381E2C4D4428003B9B66 /* ResetPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordScreen.swift; sourceTree = "<group>"; };
 		EBB989392C42358100056A0E /* Portfolio_LogInPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio_LogInPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB9893C2C42358100056A0E /* Portfolio_LogInPageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio_LogInPageApp.swift; sourceTree = "<group>"; };
 		EBB989402C42358300056A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				EB44380E2C4A20E6003B9B66 /* ConfirmationScreen.swift */,
 				EB4438122C4C4C25003B9B66 /* DashboardScreen.swift */,
 				EB4438182C4CB639003B9B66 /* SceneDelegate.swift */,
+				EB44381E2C4D4428003B9B66 /* ResetPasswordScreen.swift */,
 			);
 			path = Portfolio_LogInPage;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			files = (
 				EBB9894B2C4235B200056A0E /* LogInScreen.swift in Sources */,
 				EB4438192C4CB639003B9B66 /* SceneDelegate.swift in Sources */,
+				EB44381F2C4D4428003B9B66 /* ResetPasswordScreen.swift in Sources */,
 				EBB9893D2C42358100056A0E /* Portfolio_LogInPageApp.swift in Sources */,
 				EB4438132C4C4C25003B9B66 /* DashboardScreen.swift in Sources */,
 				EB44380F2C4A20E6003B9B66 /* ConfirmationScreen.swift in Sources */,

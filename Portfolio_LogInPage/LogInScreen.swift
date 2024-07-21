@@ -58,7 +58,7 @@ struct LogInScreen: View {
                                 .font(.title2)
                         }
                     }).offset(y: 50)
-                    Button(action: {print("Password Reset!")}, label: {
+                    Button(action: {sessionManager.resetPassword(username: username)}, label: {
                         Text("Forgot Password?")
                             .font(.system(size: 14))
                             .foregroundStyle(.black)
@@ -74,7 +74,7 @@ struct LogInScreen: View {
                     .resizable()
                     .frame(width: 30, height: 30)
             }.offset(y: 300)
-            Button(action: {sessionManager.signOut()}, label: {
+            Button(action: {sessionManager.showSignUp()}, label: {
                 Text("Don't have an account? Click Here")
                     .font(.system(size: 14))
                     .foregroundStyle(.black)

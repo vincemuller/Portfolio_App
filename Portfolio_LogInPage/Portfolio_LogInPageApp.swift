@@ -31,6 +31,9 @@ struct Portfolio_LogInPageApp: App {
             case .confirmCode(let username):
                 ConfirmationScreen(username: username)
                     .environmentObject(sessionManager)
+            case .resetPassword(let username):
+                ResetPasswordScreen(username: username)
+                    .environmentObject(sessionManager)
             case .session(let user):
                 DashboardScreen(user: user)
                     .environmentObject(sessionManager)
