@@ -16,6 +16,12 @@
 		EB4438132C4C4C25003B9B66 /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4438122C4C4C25003B9B66 /* DashboardScreen.swift */; };
 		EB4438192C4CB639003B9B66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4438182C4CB639003B9B66 /* SceneDelegate.swift */; };
 		EB44381F2C4D4428003B9B66 /* ResetPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44381E2C4D4428003B9B66 /* ResetPasswordScreen.swift */; };
+		EB4438262C4D92FA003B9B66 /* PA_UnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4438252C4D92FA003B9B66 /* PA_UnderlineView.swift */; };
+		EB4438282C4D93B0003B9B66 /* PA_TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4438272C4D93B0003B9B66 /* PA_TextFieldView.swift */; };
+		EB44382A2C4D99F7003B9B66 /* PA_CTAButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4438292C4D99F7003B9B66 /* PA_CTAButtonView.swift */; };
+		EB44382C2C4D9AEB003B9B66 /* PA_SecondaryCTAButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44382B2C4D9AEB003B9B66 /* PA_SecondaryCTAButtonView.swift */; };
+		EB44382E2C4D9CB7003B9B66 /* PA_BackgroundRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44382D2C4D9CB6003B9B66 /* PA_BackgroundRectangleView.swift */; };
+		EB4438302C4D9DE3003B9B66 /* PA_TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44382F2C4D9DE3003B9B66 /* PA_TitleView.swift */; };
 		EBB9893D2C42358100056A0E /* Portfolio_LogInPageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB9893C2C42358100056A0E /* Portfolio_LogInPageApp.swift */; };
 		EBB989412C42358300056A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB989402C42358300056A0E /* Assets.xcassets */; };
 		EBB989442C42358300056A0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB989432C42358300056A0E /* Preview Assets.xcassets */; };
@@ -33,6 +39,12 @@
 		EB4438122C4C4C25003B9B66 /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
 		EB4438182C4CB639003B9B66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EB44381E2C4D4428003B9B66 /* ResetPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordScreen.swift; sourceTree = "<group>"; };
+		EB4438252C4D92FA003B9B66 /* PA_UnderlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PA_UnderlineView.swift; sourceTree = "<group>"; };
+		EB4438272C4D93B0003B9B66 /* PA_TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PA_TextFieldView.swift; sourceTree = "<group>"; };
+		EB4438292C4D99F7003B9B66 /* PA_CTAButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PA_CTAButtonView.swift; sourceTree = "<group>"; };
+		EB44382B2C4D9AEB003B9B66 /* PA_SecondaryCTAButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PA_SecondaryCTAButtonView.swift; sourceTree = "<group>"; };
+		EB44382D2C4D9CB6003B9B66 /* PA_BackgroundRectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PA_BackgroundRectangleView.swift; sourceTree = "<group>"; };
+		EB44382F2C4D9DE3003B9B66 /* PA_TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PA_TitleView.swift; sourceTree = "<group>"; };
 		EBB989392C42358100056A0E /* Portfolio_LogInPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio_LogInPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB9893C2C42358100056A0E /* Portfolio_LogInPageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio_LogInPageApp.swift; sourceTree = "<group>"; };
 		EBB989402C42358300056A0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +82,38 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		EB4438222C4D92B7003B9B66 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EB44382D2C4D9CB6003B9B66 /* PA_BackgroundRectangleView.swift */,
+				EB4438252C4D92FA003B9B66 /* PA_UnderlineView.swift */,
+				EB4438272C4D93B0003B9B66 /* PA_TextFieldView.swift */,
+				EB4438292C4D99F7003B9B66 /* PA_CTAButtonView.swift */,
+				EB44382B2C4D9AEB003B9B66 /* PA_SecondaryCTAButtonView.swift */,
+				EB44382F2C4D9DE3003B9B66 /* PA_TitleView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EB4438232C4D92C3003B9B66 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				EBB9894A2C4235B200056A0E /* LogInScreen.swift */,
+				EB44380C2C4A1E1A003B9B66 /* SignUpScreen.swift */,
+				EB44380E2C4A20E6003B9B66 /* ConfirmationScreen.swift */,
+				EB4438122C4C4C25003B9B66 /* DashboardScreen.swift */,
+				EB44381E2C4D4428003B9B66 /* ResetPasswordScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		EB4438242C4D92C9003B9B66 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		EBB989302C42358100056A0E = {
 			isa = PBXGroup;
 			children = (
@@ -92,16 +136,14 @@
 		EBB9893B2C42358100056A0E /* Portfolio_LogInPage */ = {
 			isa = PBXGroup;
 			children = (
+				EB4438242C4D92C9003B9B66 /* ViewModels */,
+				EB4438232C4D92C3003B9B66 /* Screens */,
+				EB4438222C4D92B7003B9B66 /* Views */,
 				EB44380A2C4A1C03003B9B66 /* SessionManager.swift */,
 				EBB9893C2C42358100056A0E /* Portfolio_LogInPageApp.swift */,
 				EBB989402C42358300056A0E /* Assets.xcassets */,
 				EBB989422C42358300056A0E /* Preview Content */,
-				EBB9894A2C4235B200056A0E /* LogInScreen.swift */,
-				EB44380C2C4A1E1A003B9B66 /* SignUpScreen.swift */,
-				EB44380E2C4A20E6003B9B66 /* ConfirmationScreen.swift */,
-				EB4438122C4C4C25003B9B66 /* DashboardScreen.swift */,
 				EB4438182C4CB639003B9B66 /* SceneDelegate.swift */,
-				EB44381E2C4D4428003B9B66 /* ResetPasswordScreen.swift */,
 			);
 			path = Portfolio_LogInPage;
 			sourceTree = "<group>";
@@ -245,12 +287,18 @@
 			files = (
 				EBB9894B2C4235B200056A0E /* LogInScreen.swift in Sources */,
 				EB4438192C4CB639003B9B66 /* SceneDelegate.swift in Sources */,
+				EB4438262C4D92FA003B9B66 /* PA_UnderlineView.swift in Sources */,
+				EB44382E2C4D9CB7003B9B66 /* PA_BackgroundRectangleView.swift in Sources */,
 				EB44381F2C4D4428003B9B66 /* ResetPasswordScreen.swift in Sources */,
 				EBB9893D2C42358100056A0E /* Portfolio_LogInPageApp.swift in Sources */,
+				EB4438302C4D9DE3003B9B66 /* PA_TitleView.swift in Sources */,
 				EB4438132C4C4C25003B9B66 /* DashboardScreen.swift in Sources */,
 				EB44380F2C4A20E6003B9B66 /* ConfirmationScreen.swift in Sources */,
+				EB44382A2C4D99F7003B9B66 /* PA_CTAButtonView.swift in Sources */,
 				EB44380B2C4A1C03003B9B66 /* SessionManager.swift in Sources */,
+				EB44382C2C4D9AEB003B9B66 /* PA_SecondaryCTAButtonView.swift in Sources */,
 				EB44380D2C4A1E1A003B9B66 /* SignUpScreen.swift in Sources */,
+				EB4438282C4D93B0003B9B66 /* PA_TextFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
