@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Amplify
 
 struct LogInScreen: View {
     @EnvironmentObject var sessionManager: SessionManager
@@ -73,7 +74,7 @@ struct LogInScreen: View {
                     .resizable()
                     .frame(width: 30, height: 30)
             }.offset(y: 300)
-            Button(action: {sessionManager.showSignUp()}, label: {
+            Button(action: {sessionManager.signOut()}, label: {
                 Text("Don't have an account? Click Here")
                     .font(.system(size: 14))
                     .foregroundStyle(.black)

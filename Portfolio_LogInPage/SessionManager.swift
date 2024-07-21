@@ -87,6 +87,7 @@ final class SessionManager: ObservableObject {
     }
     
     func signIn(username: String, password: String) {
+        
         _ = Amplify.Auth.signIn(username: username, password: password) {
             [weak self] result in
             
@@ -104,4 +105,17 @@ final class SessionManager: ObservableObject {
         }
     }
     
+    func signOut() {
+        _ = Amplify.Auth.signOut {
+            [weak self] result in
+            switch result {
+            case .success:
+                DispatchQueue.main.async {
+                    self?.getCurrentUser()
+                }
+            case .failure(let error):
+                print("Sign Out Error: ", error)
+            }
+        }
+    }
 }

@@ -12,12 +12,14 @@ import SwiftUI
 struct Portfolio_LogInPageApp: App {
     
     @ObservedObject var sessionManager = SessionManager()
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     
     init() {
         configureAmplify()
     }
     
     var body: some Scene {
+        
         WindowGroup {
             switch sessionManager.authState {
             case .signUp:
@@ -40,6 +42,10 @@ struct Portfolio_LogInPageApp: App {
         do {
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
             try Amplify.configure()
+            if let currentUser = Amplify.Auth.getCurrentUser() {
+                sessionManager.signOut()
+                print("logged out")
+            }
             print("Successfully configured Amplify!")
         } catch {
             print("Failed to configure Amplify", error)
