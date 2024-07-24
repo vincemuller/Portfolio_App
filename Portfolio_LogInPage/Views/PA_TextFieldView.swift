@@ -19,7 +19,7 @@ struct PA_TextFieldView: View {
             Image(systemName: icon)
                 .font(.system(size: fontSize))
                 .foregroundStyle(.black)
-            TextField(placeholder, text: $text)
+            TextField("", text: $text, prompt: Text(placeholder).foregroundStyle(.gray.opacity(0.5)))
                 .font(.system(size: 20))
                 .foregroundStyle(.black)
                 .offset(y: 3)

@@ -21,7 +21,7 @@ struct ResetPasswordScreen: View {
             Color(.offWhite)
                 .ignoresSafeArea(.all)
             ZStack {
-                PA_BackgroundRectangleView(cornerRadius: 20, width: 360, height: 320)
+                PA_BackgroundRectangleView(cornerRadius: 20, width: 360, height: 340)
                     .offset(y: 20)
                 PA_TitleView(title: "Reset Password", subtitle: "Ok, set a new password that you'll\nprobably forget 😉")
                     .offset(y: -250)
@@ -36,7 +36,18 @@ struct ResetPasswordScreen: View {
                         }
                         sessionViewModel.changePassword(username: username, newPassword: password, code: code)}, label: "Set New Password")
                     .offset(y: 40)
+                    PA_SecondaryCTAButtonView(action: {
+                        sessionViewModel.showLogin()
+                    }, label: "Already have an account?")
+                    .offset(y: 50)
                 }
+            }
+            .alert(sessionViewModel.errTitle, isPresented: $sessionViewModel.isShowing) {
+                Button("Ok") {
+                    sessionViewModel.isShowing = false
+                }
+            } message: {
+                Text(sessionViewModel.errMessage)
             }
         }
     }

@@ -20,6 +20,9 @@ final class SessionViewModel: ObservableObject {
     @Published var authState: AuthState = .login
     @Published var username: String = ""
     @Published var password: String = ""
+    @Published var isShowing: Bool = false
+    @Published var errTitle: String = "Error"
+    @Published var errMessage: String = "The following error has occurred:\n\n"
     
     func getCurrentUser() {
         if let user = Amplify.Auth.getCurrentUser() {
@@ -71,7 +74,11 @@ final class SessionViewModel: ObservableObject {
                 }
                 
             case .failure(let error):
-                print(error)
+                DispatchQueue.main.async {
+                    self?.isShowing = true
+                    self?.errTitle = "Sign Up Error"
+                    self?.errMessage = "\nI apologize but it appears the following error occurred during sign up:\n\n\(error.errorDescription.description)"
+                }
             }
         }
     }
@@ -89,7 +96,13 @@ final class SessionViewModel: ObservableObject {
                     }
                 }
             case .failure(let error):
-                print(error)
+                DispatchQueue.main.async {
+                    DispatchQueue.main.async {
+                        self?.isShowing = true
+                        self?.errTitle = "Confirmation Error"
+                        self?.errMessage = "\nI apologize but it appears the following error occurred during confirmation:\n\n\(error.errorDescription.description)"
+                    }
+                }
             }
         }
     }
@@ -106,7 +119,11 @@ final class SessionViewModel: ObservableObject {
                     }
                 }
             case .failure(let error):
-                print(error)
+                DispatchQueue.main.async {
+                    self?.isShowing = true
+                    self?.errTitle = "Sign In Error"
+                    self?.errMessage = "\nI apologize but it appears the following error occurred during sign in:\n\n\(error.errorDescription.description)"
+                }
             }
         }
     }
@@ -120,7 +137,11 @@ final class SessionViewModel: ObservableObject {
                     self?.getCurrentUser()
                 }
             case .failure(let error):
-                print(error)
+                DispatchQueue.main.async {
+                    self?.isShowing = true
+                    self?.errTitle = "Sign Out Error"
+                    self?.errMessage = "\nI apologize but it appears the following error occurred during sign out:\n\n\(error.errorDescription.description)"
+                }
             }
         }
     }
@@ -133,7 +154,11 @@ final class SessionViewModel: ObservableObject {
                     self?.authState = .resetPassword(username: username)
                 }
             case .failure(let error):
-                print(error)
+                DispatchQueue.main.async {
+                    self?.isShowing = true
+                    self?.errTitle = "Error"
+                    self?.errMessage = "\nI apologize but it appears the following error occurred:\n\n\(error.errorDescription.description)"
+                }
             }
         }
     }
@@ -149,8 +174,18 @@ final class SessionViewModel: ObservableObject {
                     self?.showLogin()
                 }
             case .failure(let error):
-                print(error)
+                DispatchQueue.main.async {
+                    self?.isShowing = true
+                    self?.errTitle = "Change Password Error"
+                    self?.errMessage = "\nI apologize but it appears the following error occurred:\n\n\(error.errorDescription.description)"
+                }
             }
         }
+    }
+    
+    func iconLogInAttempt() {
+        isShowing = true
+        errTitle = "Development In Progress"
+        errMessage = "\nThis feature is still in development.  Check back later to see it in action!"
     }
 }

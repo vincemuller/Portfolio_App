@@ -16,7 +16,22 @@ struct DashboardScreen: View {
     let user: AuthUser
     
     var body: some View {
-        Text("Dashboard Screen \(user.username)")
+        ZStack {
+            Color.offWhite
+                .ignoresSafeArea(.all)
+            VStack {
+                HStack (spacing: 15) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(.clear)
+                            .stroke(.black, style: .init(lineWidth: 2))
+                            .frame(width: 170, height: 150)
+                        
+                    }
+                    PA_BackgroundRectangleView(cornerRadius: 30, width: 170, height: 150)
+                }
+            }
+        }
     }
 }
 

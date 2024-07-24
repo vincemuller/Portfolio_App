@@ -37,6 +37,13 @@ struct ConfirmationScreen: View {
                     }).offset(y: 50)
                 }
             }
+            .alert(sessionViewModel.errTitle, isPresented: $sessionViewModel.isShowing) {
+                Button("Ok") {
+                    sessionViewModel.isShowing = false
+                }
+            } message: {
+                Text(sessionViewModel.errMessage)
+            }
         }
     }
 }
