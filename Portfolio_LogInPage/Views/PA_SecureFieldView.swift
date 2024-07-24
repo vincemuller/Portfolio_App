@@ -1,13 +1,13 @@
 //
-//  PA_TextFieldView.swift
+//  PA_SecureFieldView.swift
 //  Portfolio_LogInPage
 //
-//  Created by Vince Muller on 7/21/24.
+//  Created by Vince Muller on 7/24/24.
 //
 
 import SwiftUI
 
-struct PA_TextFieldView: View {
+struct PA_SecureFieldView: View {
     var icon: String = ""
     var placeholder: String = ""
     @Binding var text: String
@@ -19,7 +19,7 @@ struct PA_TextFieldView: View {
             Image(systemName: icon)
                 .font(.system(size: fontSize))
                 .foregroundStyle(.black)
-            TextField(placeholder, text: $text)
+            SecureField(placeholder, text: $text)
                 .font(.system(size: 20))
                 .foregroundStyle(.black)
                 .offset(y: 3)
@@ -31,6 +31,5 @@ struct PA_TextFieldView: View {
 }
 
 //#Preview {
-//    @State var text: String = ""
-//    PA_TextFieldView(text: $text)
+//    PA_SecureFieldView()
 //}

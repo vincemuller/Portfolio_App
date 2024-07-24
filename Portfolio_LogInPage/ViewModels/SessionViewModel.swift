@@ -16,8 +16,10 @@ enum AuthState {
     case session(user: AuthUser)
 }
 
-final class SessionManager: ObservableObject {
+final class SessionViewModel: ObservableObject {
     @Published var authState: AuthState = .login
+    @Published var username: String = ""
+    @Published var password: String = ""
     
     func getCurrentUser() {
         if let user = Amplify.Auth.getCurrentUser() {
@@ -44,6 +46,7 @@ final class SessionManager: ObservableObject {
     }
     
     func signUp(username: String, email: String, password: String) {
+        print(username)
         let attributes = [AuthUserAttribute(.email, value: email)]
         let options = AuthSignUpRequest.Options(userAttributes: attributes)
         
@@ -68,7 +71,7 @@ final class SessionManager: ObservableObject {
                 }
                 
             case .failure(let error):
-                print("Sign Up Error")
+                print(error)
             }
         }
     }
@@ -86,26 +89,24 @@ final class SessionManager: ObservableObject {
                     }
                 }
             case .failure(let error):
-                print("failed to confirm code: ", error)
+                print(error)
             }
         }
     }
     
     func signIn(username: String, password: String) {
-        
         _ = Amplify.Auth.signIn(username: username, password: password) {
             [weak self] result in
             
             switch result {
             case .success(let confirmSignIn):
-                print("Logged In Successfully!")
                 if confirmSignIn.isSignedIn {
                     DispatchQueue.main.async {
                         self?.getCurrentUser()
                     }
                 }
             case .failure(let error):
-                print("Failed to log in", error)
+                print(error)
             }
         }
     }
@@ -119,7 +120,7 @@ final class SessionManager: ObservableObject {
                     self?.getCurrentUser()
                 }
             case .failure(let error):
-                print("Sign Out Error: ", error)
+                print(error)
             }
         }
     }
@@ -128,12 +129,11 @@ final class SessionManager: ObservableObject {
         _ = Amplify.Auth.resetPassword(for: username) {
             [weak self] result in switch result {
             case .success(let result):
-                print("Succeeded: \(result)")
                 DispatchQueue.main.async {
                     self?.authState = .resetPassword(username: username)
                 }
             case .failure(let error):
-                print("Failed to reset: \(error)")
+                print(error)
             }
         }
     }
@@ -149,7 +149,7 @@ final class SessionManager: ObservableObject {
                     self?.showLogin()
                 }
             case .failure(let error):
-                print("Failed to confirm password reset", error)
+                print(error)
             }
         }
     }

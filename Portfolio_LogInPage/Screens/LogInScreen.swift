@@ -9,9 +9,7 @@ import SwiftUI
 import Amplify
 
 struct LogInScreen: View {
-    @EnvironmentObject var sessionManager: SessionManager
-    @State private var username: String = ""
-    @State private var password: String = ""
+    @EnvironmentObject var sessionViewModel: SessionViewModel
     
     var body: some View {
         ZStack {
@@ -23,10 +21,10 @@ struct LogInScreen: View {
                 PA_TitleView(title: "Vince Muller", subtitle: "iOS Development Portfolio")
                     .offset(y: -250)
                 VStack (spacing: 5) {
-                    PA_TextFieldView(icon: "person.fill", placeholder: "Username", text: username, padding: 0)
-                    PA_TextFieldView(icon: "lock.fill", placeholder: "Password", text: username, padding: 25)
-                    PA_CTAButtonView(action: {sessionManager.signIn(username: username, password: password)}, label: "Log In").offset(y: 50)
-                    PA_SecondaryCTAButtonView(action: {sessionManager.resetPassword(username: username)}, label: "Forgot Password?")
+                    PA_TextFieldView(icon: "person.fill", placeholder: "Username", text: $sessionViewModel.username, padding: 0)
+                    PA_SecureFieldView(icon: "lock.fill", placeholder: "Password", text: $sessionViewModel.password, padding: 25)
+                    PA_CTAButtonView(action: {sessionViewModel.signIn(username: sessionViewModel.username, password: sessionViewModel.password)}, label: "Log In").offset(y: 50)
+                    PA_SecondaryCTAButtonView(action: {sessionViewModel.resetPassword(username: sessionViewModel.username)}, label: "Forgot Password?")
                         .offset(y: 60)
                 }
             }
@@ -35,17 +33,21 @@ struct LogInScreen: View {
                     .resizable()
                     .frame(width: 40, height: 40)
                     .offset(y: 2)
+                    .onTapGesture {
+                    }
                 Image("googleLogo")
                     .resizable()
                     .frame(width: 30, height: 30)
+                    .onTapGesture {
+                    }
             }.offset(y: 300)
-            PA_SecondaryCTAButtonView(action: {sessionManager.showSignUp()}, label: "Don't have an account? Click Here")
+            PA_SecondaryCTAButtonView(action: {sessionViewModel.showSignUp()}, label: "Don't have an account? Click Here")
                 .frame(height: 780, alignment: .bottom)
         }
     }
 }
 
 
-#Preview {
-    LogInScreen()
-}
+//#Preview {
+//    LogInScreen(sessionViewModel: SessionViewModel())
+//}

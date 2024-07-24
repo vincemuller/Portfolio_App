@@ -11,7 +11,7 @@ import SwiftUI
 @main
 struct Portfolio_LogInPageApp: App {
     
-    @ObservedObject var sessionManager = SessionManager()
+    @ObservedObject var sessionViewModel = SessionViewModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     
     init() {
@@ -21,22 +21,22 @@ struct Portfolio_LogInPageApp: App {
     var body: some Scene {
         
         WindowGroup {
-            switch sessionManager.authState {
+            switch sessionViewModel.authState {
             case .signUp:
                 SignUpScreen()
-                    .environmentObject(sessionManager)
+                    .environmentObject(sessionViewModel)
             case .login:
                 LogInScreen()
-                    .environmentObject(sessionManager)
+                    .environmentObject(sessionViewModel)
             case .confirmCode(let username):
                 ConfirmationScreen(username: username)
-                    .environmentObject(sessionManager)
+                    .environmentObject(sessionViewModel)
             case .resetPassword(let username):
                 ResetPasswordScreen(username: username)
-                    .environmentObject(sessionManager)
+                    .environmentObject(sessionViewModel)
             case .session(let user):
                 DashboardScreen(user: user)
-                    .environmentObject(sessionManager)
+                    .environmentObject(sessionViewModel)
             }
         }
     }
@@ -46,7 +46,7 @@ struct Portfolio_LogInPageApp: App {
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
             try Amplify.configure()
             if let currentUser = Amplify.Auth.getCurrentUser() {
-                sessionManager.signOut()
+                sessionViewModel.signOut()
                 print("logged out")
             }
             print("Successfully configured Amplify!")

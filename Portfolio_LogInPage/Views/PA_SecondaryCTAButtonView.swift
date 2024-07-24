@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PA_SecondaryCTAButtonView: View {
-    var action: () -> () = {print("function to execute")}
+    var action: () -> Void = {print("function to execute")}
     var label: String = ""
     
     var body: some View {

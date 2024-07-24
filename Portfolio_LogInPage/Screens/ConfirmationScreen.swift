@@ -9,7 +9,7 @@ import SwiftUI
 import Amplify
 
 struct ConfirmationScreen: View {
-    @EnvironmentObject var sessionManager: SessionManager
+    @EnvironmentObject var sessionViewModel: SessionViewModel
     @State var username: String
     @State var code: String = ""
     
@@ -23,9 +23,9 @@ struct ConfirmationScreen: View {
                 PA_TitleView(title: "Almost There!", subtitle: "Lets confirm your account")
                     .offset(y: -250)
                 VStack (spacing: 5) {
-                    PA_TextFieldView(icon: "person.fill", placeholder: "Username", text: username)
-                    PA_TextFieldView(icon: "person.crop.circle.fill.badge.checkmark", placeholder: "Confirmation Code", text: code, padding: 25)
-                    Button(action: {sessionManager.confirm(username: username, code: code)}, label: {
+                    PA_TextFieldView(icon: "person.fill", placeholder: "Username", text: $username)
+                    PA_TextFieldView(icon: "person.crop.circle.fill.badge.checkmark", placeholder: "Confirmation Code", text: $code, padding: 25)
+                    Button(action: {sessionViewModel.confirm(username: username, code: code)}, label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 15)
                                 .fill(.black)

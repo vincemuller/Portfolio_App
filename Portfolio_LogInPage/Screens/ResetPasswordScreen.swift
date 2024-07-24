@@ -10,7 +10,7 @@ import Amplify
 
 
 struct ResetPasswordScreen: View {
-    @EnvironmentObject var sessionManager: SessionManager
+    @EnvironmentObject var sessionViewModel: SessionViewModel
     @State var username: String
     @State var code: String = ""
     @State var password: String = ""
@@ -26,26 +26,17 @@ struct ResetPasswordScreen: View {
                 PA_TitleView(title: "Reset Password", subtitle: "Ok, set a new password that you'll\nprobably forget 😉")
                     .offset(y: -250)
                 VStack (spacing: 5) {
-                    PA_TextFieldView(icon: "checkmark.seal.fill", placeholder: "Confirmation Code", text: code, padding: 0, fontSize: 16)
-                    PA_TextFieldView(icon: "lock", placeholder: "New Password", text: password, padding: 25)
-                    PA_TextFieldView(icon: "lock.fill", placeholder: "Confirm New Password", text: passwordConfirmation, padding: 25)
+                    PA_TextFieldView(icon: "checkmark.seal.fill", placeholder: "Confirmation Code", text: $code, padding: 0, fontSize: 16)
+                    PA_SecureFieldView(icon: "lock", placeholder: "New Password", text: $password, padding: 25)
+                    PA_SecureFieldView(icon: "lock.fill", placeholder: "Confirm New Password", text: $passwordConfirmation, padding: 25)
                     PA_CTAButtonView(action: {
                         guard password == passwordConfirmation else {
-                            print("Password needs to be confirmed prior to resetting!")
+                            print("password and confirmation don't match")
                             return
                         }
-                        sessionManager.changePassword(username: username, newPassword: password, code: code)}, label: "Set New Password")
+                        sessionViewModel.changePassword(username: username, newPassword: password, code: code)}, label: "Set New Password")
                     .offset(y: 40)
                 }
-                HStack (alignment: .bottom, spacing: 20) {
-                    Image("appleLogo")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .offset(y: 2)
-                    Image("googleLogo")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                }.offset(y: 300)
             }
         }
     }

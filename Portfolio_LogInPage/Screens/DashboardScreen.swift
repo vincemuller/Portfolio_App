@@ -11,7 +11,7 @@ import SwiftUI
 
 struct DashboardScreen: View {
     
-    @EnvironmentObject var sessionManager: SessionManager
+    @EnvironmentObject var sessionViewModel: SessionViewModel
     
     let user: AuthUser
     
